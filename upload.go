@@ -24,7 +24,6 @@ func handlerUpload(w http.ResponseWriter, r *http.Request) {
 	defer file.Close()
 
 	filename := header.Filename
-	fmt.Println(filename)
 
 	// Upload the file to S3.
 	uploader := s3manager.NewUploader(sess)
