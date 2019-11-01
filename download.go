@@ -18,8 +18,6 @@ func handlerDownload(w http.ResponseWriter, r *http.Request) {
 	// We get the name of the file on the URL
 	filename := strings.Replace(r.URL.Path, "/get/", "", 1)
 
-	downloader := s3manager.NewDownloader(sess)
-
 	f, err := os.Create(filename)
 	if err != nil {
 		showError(w, r, http.StatusBadRequest, "Something went wrong creating the local file")
@@ -27,6 +25,7 @@ func handlerDownload(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Write the contents of S3 Object to the file
+	downloader := s3manager.NewDownloader(sess)
 	_, err = downloader.Download(f, &s3.GetObjectInput{
 		Bucket: aws.String(AWS_S3_BUCKET),
 		Key:    aws.String(filename),
