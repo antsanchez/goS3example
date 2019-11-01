@@ -15,6 +15,11 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 )
 
+const (
+	AWS_S3_REGION = ""
+	AWS_S3_BUCKET = ""
+)
+
 var sess = connectAWS()
 
 func connectAWS() *session.Session {
@@ -24,11 +29,6 @@ func connectAWS() *session.Session {
 	}
 	return sess
 }
-
-const (
-	AWS_S3_REGION = ""
-	AWS_S3_BUCKET = ""
-)
 
 func main() {
 
