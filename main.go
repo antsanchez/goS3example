@@ -26,8 +26,8 @@ func connectAWS() *session.Session {
 }
 
 const (
-	AWS_S3_REGION = "eu-central-1"
-	AWS_S3_BUCKET = "gogsc"
+	AWS_S3_REGION = ""
+	AWS_S3_BUCKET = ""
 )
 
 func main() {
