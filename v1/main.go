@@ -7,7 +7,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 
@@ -39,6 +38,5 @@ func main() {
 }
 
 func showError(w http.ResponseWriter, r *http.Request, status int, message string) {
-	w.WriteHeader(http.StatusBadRequest)
-	fmt.Fprintf(w, message)
+	http.Error(w, message, status)
 }
